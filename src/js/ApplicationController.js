@@ -1,9 +1,9 @@
 /**
  * Creates a new Application Controller.
- * 
+ *
  * @constructor
  */
-mindmaps.ApplicationController = function() {
+mindmaps.ApplicationController = function(modules = []) {
   var eventBus = new mindmaps.EventBus();
   var shortcutController = new mindmaps.ShortcutController();
   var commandRegistry = new mindmaps.CommandRegistry(shortcutController);
@@ -112,8 +112,11 @@ mindmaps.ApplicationController = function() {
     var viewController = new mindmaps.MainViewController(eventBus,
         mindmapModel, commandRegistry);
     viewController.go();
-
     doNewDocument();
+
+    for (let extraModule of modules) {
+        new extraModule(eventBus, mindmapModel);
+    }
   };
 
   this.init();
