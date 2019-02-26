@@ -138,19 +138,19 @@
         <td>Font style:</td>
         <td><div
             class="font-styles buttonset buttons-very-small buttons-less-padding">
-            <input type="checkbox" id="inspector-checkbox-font-bold" /> 
+            <input type="checkbox" id="inspector-checkbox-font-bold" />
             <label
             for="inspector-checkbox-font-bold" id="inspector-label-font-bold">B</label>
-              
-            <input type="checkbox" id="inspector-checkbox-font-italic" /> 
+
+            <input type="checkbox" id="inspector-checkbox-font-italic" />
             <label
-            for="inspector-checkbox-font-italic" id="inspector-label-font-italic">I</label> 
-            
+            for="inspector-checkbox-font-italic" id="inspector-label-font-italic">I</label>
+
             <input
-            type="checkbox" id="inspector-checkbox-font-underline" /> 
+            type="checkbox" id="inspector-checkbox-font-underline" />
             <label
-            for="inspector-checkbox-font-underline" id="inspector-label-font-underline">U</label> 
-            
+            for="inspector-checkbox-font-underline" id="inspector-label-font-underline">U</label>
+
             <input
             type="checkbox" id="inspector-checkbox-font-linethrough" />
              <label
@@ -193,14 +193,7 @@
   <div id="debug-warning">Running in DEBUG mode.</div>
   <!-- /DEBUG -->
   <div id="container">
-    <script>
-      // only show banner on drichard.org
-      if (window.location.hostname === 'drichard.org') {
-        document.write(
-          '<div id="banner"><strong>Attention:</strong> This app is moving soon to <a href="https://www.mindmaps.app" target="_blank">www.mindmaps.app</a>. Mind maps stored in local storage will not be available on the new site. If you have any maps in local storage, please save them to file and import them on the new website. If you have any questions, please <a href="mailto:david+contact@drichard.org">contact me</a>.</div>'
-        );
-      }
-    </script>
+    <!-- DEBUG -->
     <div id="topbar">
       <div id="toolbar">
         <div id="logo" class="logo-bg">
@@ -214,15 +207,13 @@
 
       </div>
     </div>
+    <!-- /DEBUG -->
     <div id="canvas-container">
       <div id="drawing-area" class="no-select"></div>
     </div>
     <div id="bottombar">
       <div id="about">
-        <a href="about.html" target="_blank">About mindmaps</a> <span
-          style="padding: 0 4px;">|</span> <a style="font-weight: bold"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSfETMwnwQQXx9aAEFA26jbuBJGkU9zLCW7Rj1Taf5u3k-2NYQ/viewform?usp=sf_link"
-          target="_blank">Leave Feedback</a>
+        <a href="about.html" target="_blank">About mindmaps</a> 
       </div>
       <div id="statusbar">
         <div

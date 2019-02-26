@@ -1,7 +1,7 @@
 /**
  * Creates a NavigatorView. This view shows a minified version of the mindmap +
  * controls for adjusting the zoom.
- * 
+ *
  * @constructor
  */
 mindmaps.NavigatorView = function() {
@@ -15,7 +15,7 @@ mindmaps.NavigatorView = function() {
 
   /**
    * Returns the content.
-   * 
+   *
    * @returns {jQuery}
    */
   this.getContent = function() {
@@ -40,7 +40,7 @@ mindmaps.NavigatorView = function() {
 
   /**
    * Adjusts the size of the red rectangle.
-   * 
+   *
    * @param {Number} width
    * @param {Nubmer} height
    */
@@ -53,7 +53,7 @@ mindmaps.NavigatorView = function() {
 
   /**
    * Sets the position of the dragger rectangle.
-   * 
+   *
    * @param {Number} x
    * @param {Number} y
    */
@@ -66,7 +66,7 @@ mindmaps.NavigatorView = function() {
 
   /**
    * Sets the height of the mini canvas.
-   * 
+   *
    * @param {Number} height
    */
   this.setCanvasHeight = function(height) {
@@ -77,7 +77,7 @@ mindmaps.NavigatorView = function() {
 
   /**
    * Gets the width of the mini canvas.
-   * 
+   *
    * @returns {Number}
    */
   this.getCanvasWidth = function() {
@@ -145,7 +145,7 @@ mindmaps.NavigatorView = function() {
 
   /**
    * Draws the complete mindmap onto the mini canvas.
-   * 
+   *
    * @param {mindmaps.MindMap} mindmap
    * @param {Number} scaleFactor
    */
@@ -210,7 +210,7 @@ mindmaps.NavigatorView = function() {
 
   /**
    * Shows the zoom level as percentage.
-   * 
+   *
    * @param {String} zoom
    */
   this.showZoomLevel = function(zoom) {
@@ -219,7 +219,7 @@ mindmaps.NavigatorView = function() {
 
   /**
    * Sets the value of the zoom slider.
-   * 
+   *
    * @param {Integer} value
    */
   this.setSliderValue = function(value) {
@@ -229,7 +229,7 @@ mindmaps.NavigatorView = function() {
 
 /**
  * Creates a new NavigatorPresenter.
- * 
+ *
  * @constructor
  * @param {mindmaps.EventBus} eventBus
  * @param {mindmaps.NavigatorView} view
@@ -361,7 +361,7 @@ mindmaps.NavigatorPresenter = function(eventBus, view, container,
 
   /**
    * View callbacks.
-   * 
+   *
    * @ignore
    */
 

@@ -2,7 +2,7 @@
  * The canvas container is the area in between the toolbar and the statusbar.
  * Inside the mind map will be drawn and the floating panels are contained
  * within this area.
- * 
+ *
  * @constructor
  */
 mindmaps.CanvasContainer = function() {
@@ -73,7 +73,7 @@ mindmaps.CanvasContainer = function() {
 
   /**
    * Callback for when a file was dropped onto the container.
-   * 
+   *
    * @event
    * @param {String} result
    */
@@ -85,13 +85,13 @@ EventEmitter.mixin(mindmaps.CanvasContainer);
 
 /**
  * Events fired by the container.
- * 
+ *
  * @namespace
  */
 mindmaps.CanvasContainer.Event = {
   /**
    * Fired when the container has been resized.
-   * 
+   *
    * @event
    * @param {mindmaps.Point} point the new size
    */
@@ -101,7 +101,7 @@ mindmaps.CanvasContainer.Event = {
 /**
  * Creates a new MainViewController. The controller is responsible for creating
  * all main ui elements.
- * 
+ *
  * @constructor
  * @param {mindmaps.EventBus} eventBus
  * @param {mindmaps.MindMapModel} mindmapModel

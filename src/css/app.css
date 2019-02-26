@@ -191,7 +191,6 @@ html,body {
 #drawing-area {
   position: absolute;
   background-color: white;
-  background-image: url("../img/grid.gif");
   background-size: 24px 24px;
   /* need this for webkit as well. */
   image-rendering: -moz-crisp-edges;
@@ -387,7 +386,7 @@ html,body {
 }
 
 #navigator {
-  
+
 }
 
 #navigator .inactive {
@@ -395,7 +394,7 @@ html,body {
 }
 
 #navi-content {
-  
+
 }
 
 #navi-canvas-wrapper {
@@ -429,7 +428,7 @@ html,body {
 }
 
 #navi-controls {
-  
+
 }
 
 #navi-slider {
@@ -446,7 +445,7 @@ html,body {
 }
 
 #inspector {
-  
+
 }
 
 #inspector-table {
