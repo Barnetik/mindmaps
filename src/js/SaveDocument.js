@@ -20,28 +20,28 @@ mindmaps.SaveDocumentView = function() {
   });
 
 
-  var $saveCloudStorageButton = $("#button-save-cloudstorage").button().click(
+  var $saveCloudStorageButton = $("#button-save-cloudstorage").button().on('click', 
     function() {
       if (self.cloudStorageButtonClicked) {
         self.cloudStorageButtonClicked();
       }
     });
 
-  var $localSorageButton = $("#button-save-localstorage").button().click(
+  var $localSorageButton = $("#button-save-localstorage").button().on('click', 
     function() {
       if (self.localStorageButtonClicked) {
         self.localStorageButtonClicked();
       }
     });
 
-  var $autoSaveCheckbox = $("#checkbox-autosave-localstorage").click(
+  var $autoSaveCheckbox = $("#checkbox-autosave-localstorage").on('click', 
     function() {
       if (self.autoSaveCheckboxClicked) {
         self.autoSaveCheckboxClicked($(this).prop("checked"));
       }
     });
 
-  var $hddSaveButton = $("#button-save-hdd").button().click(
+  var $hddSaveButton = $("#button-save-hdd").button().on('click', 
     function () {
       if (self.hddSaveButtonClicked) {
         self.hddSaveButtonClicked();

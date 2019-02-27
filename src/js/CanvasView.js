@@ -238,7 +238,7 @@ mindmaps.DefaultCanvasView = function() {
     });
 
     // mouse wheel listener
-    this.$getContainer().bind("mousewheel", function(e, delta) {
+    this.$getContainer().on("mousewheel", function(e, delta) {
       if (self.mouseWheeled) {
         self.mouseWheeled(delta);
       }
@@ -512,7 +512,7 @@ mindmaps.DefaultCanvasView = function() {
     var openClosed = node.foldChildren ? " closed" : " open";
     var $foldButton = $("<div/>", {
       "class" : "button-fold no-select" + openClosed + position
-    }).click(function(e) {
+    }).on('click', function(e) {
       // fire event
       if (self.foldButtonClicked) {
         self.foldButtonClicked(node);
@@ -764,16 +764,16 @@ mindmaps.DefaultCanvasView = function() {
     var $editor = $("<textarea/>", {
       id : "caption-editor",
       "class" : "node-text-behaviour"
-    }).bind("keydown", "esc", function() {
+    }).on("keydown", "esc", function() {
       self.stop();
-    }).bind("keydown", "return", function() {
+    }).on("keydown", "return", function() {
       commitText();
-    }).mousedown(function(e) {
+    }).on('mousedown', function(e) {
       // avoid premature canceling
       e.stopPropagation();
-    }).blur(function() {
+    }).on('blur', function() {
       commitText();
-    }).bind(
+    }).on(
         "input",
         function() {
           var metrics = textMetrics.getTextMetrics(self.node,
@@ -824,7 +824,7 @@ mindmaps.DefaultCanvasView = function() {
       // jquery ui prevents blur() event from happening when dragging a
       // draggable. need this
       // workaround to detect click on other draggable
-      $cancelArea.bind("mousedown.editNodeCaption", function(e) {
+      $cancelArea.on("mousedown.editNodeCaption", function(e) {
         commitText();
       });
 
@@ -867,7 +867,7 @@ mindmaps.DefaultCanvasView = function() {
 
     var $wrapper = $("<div/>", {
       id : "creator-wrapper"
-    }).bind("remove", function(e) {
+    }).on("remove", function(e) {
       // detach the creator when some removed the node or opened a new map
       self.detach();
       // and avoid removing from DOM

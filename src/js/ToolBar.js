@@ -148,8 +148,8 @@ mindmaps.ToolBarButton.prototype.asJquery = function() {
   var $button = $("<button/>", {
     id : this.getId(),
     title : this.getToolTip()
-  }).click(function() {
-    self.click();
+  }).on('click', function() {
+    self.on('click', );
   }).button({
     label : this.getTitle(),
     disabled : !this.isEnabled()
@@ -183,9 +183,9 @@ mindmaps.ToolBarMenu = function(title, icon) {
   var self = this;
   this.$menuWrapper = $("<span/>", {
     "class" : "menu-wrapper"
-  }).hover(function() {
+  }).on('mouseenter', function() {
     self.$menu.show();
-  }, function() {
+  }).on('mouseleave', function() {
     self.$menu.hide();
   });
 
@@ -199,7 +199,7 @@ mindmaps.ToolBarMenu = function(title, icon) {
 
   this.$menu = $("<div/>", {
     "class" : "menu"
-  }).click(function() {
+  }).on('click', function() {
     self.$menu.hide();
   }).appendTo(this.$menuWrapper);
 

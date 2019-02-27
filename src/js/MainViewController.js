@@ -57,13 +57,13 @@ mindmaps.CanvasContainer = function() {
       reader.readAsText(file);
     }
 
-    $content.bind('dragover', handleDragOver);
-    $content.bind('drop', handleDrop);
+    $content.on('dragover', handleDragOver);
+    $content.on('drop', handleDrop);
   };
 
   this.init = function() {
     // recalculate size when window is resized.
-    $(window).resize(function() {
+    $(window).on('resize', function() {
       self.setSize();
     });
 

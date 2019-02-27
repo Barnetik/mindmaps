@@ -24,7 +24,7 @@ mindmaps.StatusBarView = function() {
       id : "statusbar-button-" + id
     }).button({
       label : text
-    }).click(function() {
+    }).on('click', function() {
       if (self.buttonClicked) {
         self.buttonClicked(id);
       }

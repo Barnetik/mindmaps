@@ -45,7 +45,7 @@ mindmaps.HelpController = function(eventBus, commandRegistry) {
                 + "will guide you through the app. Or they won't if you want to skip this tutorial and <a class='skip-tutorial link'>click here<a/>."
           });
       notifications.push(helpMain);
-      helpMain.$().find("a.skip-tutorial").click(function() {
+      helpMain.$().find("a.skip-tutorial").on('click', function() {
         interactiveMode = false;
         closeAllNotifications();
         tutorialDone();

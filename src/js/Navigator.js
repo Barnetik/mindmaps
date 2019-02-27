@@ -103,7 +103,7 @@ mindmaps.NavigatorView = function() {
       icons : {
         primary : "ui-icon-zoomin"
       }
-    }).click(function() {
+    }).on('click', function() {
       if (self.buttonZoomInClicked) {
         self.buttonZoomInClicked();
       }
@@ -114,7 +114,7 @@ mindmaps.NavigatorView = function() {
       icons : {
         primary : "ui-icon-zoomout"
       }
-    }).click(function() {
+    }).on('click', function() {
       if (self.buttonZoomOutClicked) {
         self.buttonZoomOutClicked();
       }
@@ -329,7 +329,7 @@ mindmaps.NavigatorPresenter = function(eventBus, view, container,
     view.showActiveContent();
 
     // move dragger when container was scrolled
-    $container.bind("scroll.navigator-view", function() {
+    $container.on("scroll.navigator-view", function() {
       if (!viewDragging) {
         calculateDraggerPosition();
       }

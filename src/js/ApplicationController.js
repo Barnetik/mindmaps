@@ -5,13 +5,14 @@
  */
 mindmaps.ApplicationController = function(modules = []) {
   var eventBus = new mindmaps.EventBus();
+  eventBus.setMaxListeners(20);
+  
   var shortcutController = new mindmaps.ShortcutController();
   var commandRegistry = new mindmaps.CommandRegistry(shortcutController);
   var undoController = new mindmaps.UndoController(eventBus, commandRegistry);
   var mindmapModel = new mindmaps.MindMapModel(eventBus, commandRegistry, undoController);
   var clipboardController = new mindmaps.ClipboardController(eventBus,
       commandRegistry, mindmapModel);
-  var helpController = new mindmaps.HelpController(eventBus, commandRegistry);
   var printController = new mindmaps.PrintController(eventBus,
       commandRegistry, mindmapModel);
   var autosaveController = new mindmaps.AutoSaveController(eventBus, mindmapModel);

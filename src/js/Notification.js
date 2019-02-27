@@ -133,7 +133,7 @@ mindmaps.Notification = function(targetSelector, options) {
 
   // close button
   if (options.closeButton) {
-    $notification.find(".close-button").click(function() {
+    $notification.find(".close-button").on('click', function() {
       self.close();
     });
   }

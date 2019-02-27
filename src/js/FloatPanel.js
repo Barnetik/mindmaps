@@ -1,7 +1,7 @@
 /**
  * Creates a new FloatPanelFactory. This factory object can create new instances
  * of mindmaps.FloatPanel that are constrained inside the container.
- * 
+ *
  * @constructor
  * @param container
  */
@@ -35,7 +35,7 @@ mindmaps.FloatPanelFactory = function(container) {
 
   /**
    * Creates a new FloatPanel.
-   * 
+   *
    * @param {String} caption the float panel title
    * @param {jQuery} $content the content as a jquery object
    * @returns {mindmaps.FloatPanel}
@@ -52,7 +52,7 @@ mindmaps.FloatPanelFactory = function(container) {
  * A reusable, draggable panel gui element. The panel is contained within the
  * container. When a $hideTarget is set, the hide/show animations will show a
  * transfer effect.
- * 
+ *
  * @constructor
  * @param {String} caption the float panel title
  * @param {jQuery} $container the surrounding container jquery object
@@ -68,7 +68,7 @@ mindmaps.FloatPanel = function(caption, $container, $content) {
 
   /**
    * Replaces the content in the panel.
-   * 
+   *
    * @param {jQuery} $content
    */
   this.setContent = function($content) {
@@ -90,9 +90,9 @@ mindmaps.FloatPanel = function(caption, $container, $content) {
     var $panel = $("#template-float-panel").tmpl({
       title : caption
     });
-    
+
     // hide button
-    $panel.find(".ui-dialog-titlebar-close").click(function() {
+    $panel.find(".ui-dialog-titlebar-close").on('click', function() {
       self.hide();
     });
 
@@ -100,14 +100,14 @@ mindmaps.FloatPanel = function(caption, $container, $content) {
     if ($content) {
       $panel.find(".ui-dialog-content").append($content);
     }
-    
+
     // make draggable, hide, append to container
     $panel.draggable({
       containment : "parent",
       handle : "div.ui-dialog-titlebar",
       opacity : 0.75
     }).hide().appendTo($container);
-    
+
     return $panel;
   })();
 
@@ -155,7 +155,7 @@ mindmaps.FloatPanel = function(caption, $container, $content) {
 
   /**
    * Shows a transfer effect.
-   * 
+   *
    * @private
    * @param {jQuery} $from
    * @param {jQuery} $to
@@ -183,7 +183,7 @@ mindmaps.FloatPanel = function(caption, $container, $content) {
   };
 
   /**
-   * 
+   *
    * @returns {Number} the width.
    */
   this.width = function() {
@@ -191,7 +191,7 @@ mindmaps.FloatPanel = function(caption, $container, $content) {
   };
 
   /**
-   * 
+   *
    * @returns {Number} the height.
    */
   this.height = function() {
@@ -199,7 +199,7 @@ mindmaps.FloatPanel = function(caption, $container, $content) {
   };
 
   /**
-   * 
+   *
    * @returns {Object} the offset
    */
   this.offset = function() {
@@ -208,7 +208,7 @@ mindmaps.FloatPanel = function(caption, $container, $content) {
 
   /**
    * Sets the position of the panel relative to the container.
-   * 
+   *
    * @param {Number} x
    * @param {Number} y
    */
@@ -222,7 +222,7 @@ mindmaps.FloatPanel = function(caption, $container, $content) {
   /**
    * Moves panel into view port if position exceeds the bounds of the
    * container.
-   * 
+   *
    * @private
    */
   this.ensurePosition = function() {
@@ -250,7 +250,7 @@ mindmaps.FloatPanel = function(caption, $container, $content) {
 
   /**
    * Sets the hide target for the panel.
-   * 
+   *
    * @param {jQuery} $target
    */
   this.setHideTarget = function($target) {

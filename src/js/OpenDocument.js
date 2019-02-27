@@ -1,7 +1,7 @@
 /**
  * Creates a new OpenDocumentView. This view shows a dialog from which the user
  * can select a mind map from the local storage or a hard disk.
- * 
+ *
  * @constructor
  */
 mindmaps.OpenDocumentView = function() {
@@ -19,13 +19,13 @@ mindmaps.OpenDocumentView = function() {
     }
   });
 
-  var $openCloudButton = $("#button-open-cloud").button().click(function() {
+  var $openCloudButton = $("#button-open-cloud").button().on('click', function() {
     if (self.openCloudButtonClicked) {
       self.openCloudButtonClicked();
     }
   });
 
-  $dialog.find(".file-chooser input").bind("change", function(e) {
+  $dialog.find(".file-chooser input").on("change", function(e) {
     if (self.openExernalFileClicked) {
       self.openExernalFileClicked(e);
     }
@@ -46,7 +46,7 @@ mindmaps.OpenDocumentView = function() {
 
   /**
   * Render list of documents in the local storage
-  * 
+  *
   * @param {mindmaps.Document[]} docs
   */
   this.render = function(docs) {
@@ -67,7 +67,7 @@ mindmaps.OpenDocumentView = function() {
 
   /**
   * Shows the dialog.
-  * 
+  *
   * @param {mindmaps.Document[]} docs
   */
   this.showOpenDialog = function(docs) {
@@ -100,7 +100,7 @@ mindmaps.OpenDocumentView = function() {
 /**
 * Creates a new OpenDocumentPresenter. The presenter can load documents from
 * the local storage or hard disk.
-* 
+*
 * @constructor
 * @param {mindmaps.EventBus} eventBus
 * @param {mindmaps.MindMapModel} mindmapModel
@@ -139,7 +139,7 @@ mindmaps.OpenDocumentPresenter = function(eventBus, mindmapModel, view, filePick
   /**
   * View callback: external file has been selected. Try to read and parse a
   * valid mindmaps Document.
-  * 
+  *
   * @ignore
   */
   view.openExernalFileClicked = function(e) {
@@ -166,13 +166,13 @@ mindmaps.OpenDocumentPresenter = function(eventBus, mindmapModel, view, filePick
   /**
   * View callback: A document in the local storage list has been clicked.
   * Load the document and close view.
-  * 
+  *
   * @ignore
   * @param {mindmaps.Document} doc
   */
   view.documentClicked = function(doc) {
     mindmaps.Util.trackEvent("Clicks", "localstorage-open");
-    
+
     mindmapModel.setDocument(doc);
     view.hideOpenDialog();
   };
@@ -180,7 +180,7 @@ mindmaps.OpenDocumentPresenter = function(eventBus, mindmapModel, view, filePick
   /**
   * View callback: The delete link the local storage list has been clicked.
   * Delete the document, and render list again.
-  * 
+  *
   * @ignore
   * @param {mindmaps.Document} doc
   */

@@ -109,40 +109,40 @@ mindmaps.InspectorView = function() {
     $(".buttonset", $content).buttonset();
     $branchColorChildrenButton.button();
 
-    $sizeDecreaseButton.click(function() {
+    $sizeDecreaseButton.on('click', function() {
       if (self.fontSizeDecreaseButtonClicked) {
         self.fontSizeDecreaseButtonClicked();
       }
     });
 
-    $sizeIncreaseButton.click(function() {
+    $sizeIncreaseButton.on('click', function() {
       if (self.fontSizeIncreaseButtonClicked) {
         self.fontSizeIncreaseButtonClicked();
       }
     });
 
-    $boldCheckbox.click(function() {
+    $boldCheckbox.on('click', function() {
       if (self.fontBoldCheckboxClicked) {
         var checked = $(this).prop("checked");
         self.fontBoldCheckboxClicked(checked);
       }
     });
 
-    $italicCheckbox.click(function() {
+    $italicCheckbox.on('click', function() {
       if (self.fontItalicCheckboxClicked) {
         var checked = $(this).prop("checked");
         self.fontItalicCheckboxClicked(checked);
       }
     });
 
-    $underlineCheckbox.click(function() {
+    $underlineCheckbox.on('click', function() {
       if (self.fontUnderlineCheckboxClicked) {
         var checked = $(this).prop("checked");
         self.fontUnderlineCheckboxClicked(checked);
       }
     });
 
-    $linethroughCheckbox.click(function() {
+    $linethroughCheckbox.on('click', function() {
       if (self.fontLinethroughCheckboxClicked) {
         var checked = $(this).prop("checked");
         self.fontLinethroughCheckboxClicked(checked);
@@ -188,7 +188,7 @@ mindmaps.InspectorView = function() {
       }
     });
 
-    $branchColorChildrenButton.click(function() {
+    $branchColorChildrenButton.on('click', function() {
       if (self.branchColorChildrenButtonClicked) {
         self.branchColorChildrenButtonClicked();
       }
