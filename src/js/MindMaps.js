@@ -61,7 +61,7 @@ if (window.location.hostname === 'drichard.org') {
  * Start up. This function is executed when the DOM is loaded.
  */
 $(function() {
-  removeEventLayerXY();
+  // removeEventLayerXY();
 
   // take car of old browsers
   createECMA5Shims();
@@ -82,18 +82,18 @@ $(function() {
  *
  * Can be removed when upgrading to jQuery 1.7+.
  */
-function removeEventLayerXY() {
-  // remove layerX and layerY
-  var all = $.event.props,
-  len = all.length,
-  res = [];
-
-  while (len--) {
-    var el = all[len];
-    if (el != 'layerX' && el != 'layerY') res.push(el);
-  }
-  $.event.props = res;
-}
+// function removeEventLayerXY() {
+//   // remove layerX and layerY
+//   var all = $.event.props,
+//   len = all.length,
+//   res = [];
+//
+//   while (len--) {
+//     var el = all[len];
+//     if (el != 'layerX' && el != 'layerY') res.push(el);
+//   }
+//   $.event.props = res;
+// }
 
 /**
 * Adds a confirmation dialog when the user navigates away from the app.

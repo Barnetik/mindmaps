@@ -1,6 +1,6 @@
 /**
  * Creates a new ToolBarView.
- * 
+ *
  * @constructor
  */
 mindmaps.ToolBarView = function() {
@@ -11,7 +11,7 @@ mindmaps.ToolBarView = function() {
 
   /**
    * Adds a button to the toolbar with the given align function.
-   * 
+   *
    * @param {mindmaps.ToolBarButton} button
    * @param {Function} alignFunc
    */
@@ -22,7 +22,7 @@ mindmaps.ToolBarView = function() {
 
   /**
    * Adds a set of buttons grouped together to the toolbar.
-   * 
+   *
    * @param {mindmaps.ToolBarButton[]} buttons
    * @param {Function} alignFunc
    */
@@ -38,7 +38,7 @@ mindmaps.ToolBarView = function() {
 
   /**
    * Adds a menu to the toolbar.
-   * 
+   *
    * @param {mindmaps.ToolBarMenu} menu
    */
   this.addMenu = function(menu) {
@@ -47,7 +47,7 @@ mindmaps.ToolBarView = function() {
 
   /**
    * Adds the element to the left side of the toolbar.
-   * 
+   *
    * @param {jQuery} $el
    */
   this.alignLeft = function($el) {
@@ -56,7 +56,7 @@ mindmaps.ToolBarView = function() {
 
   /**
    * Adds the element to the right side of the toolbar.
-   * 
+   *
    * @param {jQuery} $el
    */
   this.alignRight = function($el) {
@@ -66,7 +66,7 @@ mindmaps.ToolBarView = function() {
 
 /**
  * Toolbar button model.
- * 
+ *
  * @constructor
  * @param {mindmaps.Command} command
  */
@@ -86,7 +86,7 @@ mindmaps.ToolBarButton = function(command) {
 
 /**
  * Returns whether the button should have an enabled style.
- * 
+ *
  * @returns {Boolean}
  */
 mindmaps.ToolBarButton.prototype.isEnabled = function() {
@@ -102,7 +102,7 @@ mindmaps.ToolBarButton.prototype.click = function() {
 
 /**
  * Gets the button's title.
- * 
+ *
  * @returns {String}
  */
 mindmaps.ToolBarButton.prototype.getTitle = function() {
@@ -111,12 +111,12 @@ mindmaps.ToolBarButton.prototype.getTitle = function() {
 
 /**
  * Gets the tooltip.
- * 
+ *
  * @returns {String}
  */
 mindmaps.ToolBarButton.prototype.getToolTip = function() {
-  var tooltip = this.command.description; 
-  
+  var tooltip = this.command.description;
+
   var shortcut = this.command.shortcut;
   if (shortcut) {
     if (Array.isArray(shortcut)) {
@@ -131,7 +131,7 @@ mindmaps.ToolBarButton.prototype.getToolTip = function() {
 
 /**
  * Gets the unique id of the button.
- * 
+ *
  * @returns {String}
  */
 mindmaps.ToolBarButton.prototype.getId = function() {
@@ -140,7 +140,7 @@ mindmaps.ToolBarButton.prototype.getId = function() {
 
 /**
  * Constructs a jQuery element that represents the button.
- * 
+ *
  * @returns {jQuery}
  */
 mindmaps.ToolBarButton.prototype.asJquery = function() {
@@ -174,7 +174,7 @@ mindmaps.ToolBarButton.prototype.asJquery = function() {
 
 /**
  * Creates a new ToolBarMenu.
- * 
+ *
  * @constructor
  * @param {String} title
  * @param {String} icon
@@ -205,7 +205,7 @@ mindmaps.ToolBarMenu = function(title, icon) {
 
   /**
    * Adds a new button entry to the menu.
-   * 
+   *
    * @param {mindmaps.ToolBarButton|mindmaps.ToolBarButtons[]} buttons a
    *            single button or an array of buttons
    */
@@ -227,7 +227,7 @@ mindmaps.ToolBarMenu = function(title, icon) {
 
   /**
    * Returns the underlying jquery object.
-   * 
+   *
    * @returns {jQuery}
    */
   this.getContent = function() {
@@ -237,7 +237,7 @@ mindmaps.ToolBarMenu = function(title, icon) {
 
 /**
  * Creates a new ToolBarPresenter.
- * 
+ *
  * @constructor
  * @param {mindmaps.EventBus} eventBus
  * @param {mindmaps.CommandRegistry} commandRegistry
@@ -248,7 +248,7 @@ mindmaps.ToolBarPresenter = function(eventBus, commandRegistry, view,
     mindmapModel) {
   /**
    * Returns a button that registers with a command of the given commandType
-   * 
+   *
    * @param {mindmaps.Command} commandType
    * @returns {mindmaps.ToolBarButton}
    */

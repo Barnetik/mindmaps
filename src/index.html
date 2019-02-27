@@ -52,32 +52,32 @@
 </script>
 
 <script id="template-open" type="text/x-jquery-tmpl">
-<div id="open-dialog" class="file-dialog" title="Open mind map">
-  <h1><span class="highlight">Works again!</span> In the Cloud: Dropbox and more</h1>
-  <p>Open, save and share your mind maps online in your favorite cloud storage. Supports Google Drive, Dropbox and more! Powered by <a href="https://www.filestack.com/" target="_blank">filestack.com</a>.</p>
-  <button id="button-open-cloud">Open</button>
-  <span class="cloud-loading">Loading...</span>
-  <span class="cloud-error error"></span>
-  <div class="seperator"></div>
-  <h1>Local Storage</h1>
-  <p>This is a list of all mind maps that are saved in your browser's local storage. Click on the title of a map to open it.</p>
-  <table class="localstorage-filelist">
-    <thead>
-      <tr>
-        <th class="title">Title</th>
-        <th class="modified">Last Modified</th>
-        <th class="delete"></th>
-      </tr>
-    </thead>
-    <tbody class="document-list"></tbody>
-  </table>
-  <div class="seperator"></div>
-  <h1>From file</h1>
-  <p>Choose a mind map from your computer's hard drive.</p>
-  <div class="file-chooser">
-    <input type="file" />
+  <div id="open-dialog" class="file-dialog" title="Open mind map">
+    <h1><span class="highlight">Works again!</span> In the Cloud: Dropbox and more</h1>
+    <p>Open, save and share your mind maps online in your favorite cloud storage. Supports Google Drive, Dropbox and more! Powered by <a href="https://www.filestack.com/" target="_blank">filestack.com</a>.</p>
+    <button id="button-open-cloud">Open</button>
+    <span class="cloud-loading">Loading...</span>
+    <span class="cloud-error error"></span>
+    <div class="seperator"></div>
+    <h1>Local Storage</h1>
+    <p>This is a list of all mind maps that are saved in your browser's local storage. Click on the title of a map to open it.</p>
+    <table class="localstorage-filelist">
+      <thead>
+        <tr>
+          <th class="title">Title</th>
+          <th class="modified">Last Modified</th>
+          <th class="delete"></th>
+        </tr>
+      </thead>
+      <tbody class="document-list"></tbody>
+    </table>
+    <div class="seperator"></div>
+    <h1>From file</h1>
+    <p>Choose a mind map from your computer's hard drive.</p>
+    <div class="file-chooser">
+      <input type="file" />
+    </div>
   </div>
-</div>
 </script>
 
 <script id="template-save" type="text/x-jquery-tmpl">
@@ -193,7 +193,6 @@
   <div id="debug-warning">Running in DEBUG mode.</div>
   <!-- /DEBUG -->
   <div id="container">
-    <!-- DEBUG -->
     <div id="topbar">
       <div id="toolbar">
         <div id="logo" class="logo-bg">
@@ -207,13 +206,12 @@
 
       </div>
     </div>
-    <!-- /DEBUG -->
     <div id="canvas-container">
       <div id="drawing-area" class="no-select"></div>
     </div>
     <div id="bottombar">
       <div id="about">
-        <a href="about.html" target="_blank">About mindmaps</a> 
+        <a href="about.html" target="_blank">About mindmaps</a>
       </div>
       <div id="statusbar">
         <div
@@ -222,7 +220,9 @@
     </div>
   </div>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-3.0.1.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="//api.filestackapi.com/filestack.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
 
@@ -235,7 +235,6 @@
   <!-- /DEBUG -->
 
   <!-- JS:LIB:BEGIN -->
-  <script src="js/libs/jquery-ui-1.8.11.custom.min.js"></script>
   <script src="js/libs/dragscrollable.js"></script>
   <script src="js/libs/jquery.hotkeys.js"></script>
   <script src="js/libs/jquery.mousewheel.js"></script>
@@ -282,5 +281,10 @@
   <script src="js/AutoSaveController.js"></script>
   <script src="js/FilePicker.js"></script>
   <!-- JS:LIB:END -->
+
+  <script>
+  var appController = new mindmaps.ApplicationController();
+    appController.go();
+  </script>
 </body>
 </html>
