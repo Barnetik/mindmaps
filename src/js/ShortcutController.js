@@ -33,6 +33,7 @@ mindmaps.ShortcutController = function() {
    * @param {String} [type="keydown"]
    */
   this.register = function(shortcuts, handler, type) {
+    console.log(shortcuts);
     if (!Array.isArray(shortcuts)) {
       shortcuts = [shortcuts];
     }
@@ -40,7 +41,7 @@ mindmaps.ShortcutController = function() {
     var self = this;
     shortcuts.forEach(function(shortcut) {
       type = getType(shortcut, type);
-      $(document).on(type, shortcut, function(e) {
+      $(document).bind(type, shortcut, function(e) {
         // try best to cancel default actions on shortcuts like ctrl+n
         e.stopImmediatePropagation();
         e.stopPropagation();
