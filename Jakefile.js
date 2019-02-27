@@ -18,13 +18,13 @@ function extractScriptNames() {
   var scriptSection = regexScriptSection.exec(indexFile)[1];
 
   // extract script names
-  var names = []; 
+  var names = [];
   var match;
   while ((match = regexScriptName.exec(scriptSection)) != null) {
     var script = match[1];
     names.push(script);
   }
-    
+
   return names;
 }
 
@@ -32,6 +32,7 @@ function extractScriptNames() {
 function minifyScripts(scriptNames) {
   console.log("Minifying and concatting scripts.");
 
+  var Babel = require("@babel/core");
   var UglifyJS = require("uglify-js");
 
   var regexMinifed = /min.js$/;
@@ -46,9 +47,11 @@ function minifyScripts(scriptNames) {
 
     // check if file is already minified
     if (!regexMinifed.test(script)) {
-      var result = UglifyJS.minify(scriptFile);
+        // console.log(script);
+        // console.log();
+      var result = Babel.transformFileSync(srcDir + script, {minified: true, comments: false});
       if (result.error) {
-        throw new Error(error);
+        throw new Error(result.error);
       }
       scriptFile = result.code;
     } else {

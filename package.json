@@ -32,6 +32,8 @@
     "uglify-js": "^3.3.27"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
     "http-server": "^0.11.1"
   }
 }
