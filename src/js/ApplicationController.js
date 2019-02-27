@@ -3,14 +3,14 @@
  *
  * @constructor
  */
-mindmaps.ApplicationController = function(modules = []) {
+mindmaps.ApplicationController = function(modules = [], modulesConfig = []) {
   var eventBus = new mindmaps.EventBus();
   eventBus.setMaxListeners(20);
-  
+
   var shortcutController = new mindmaps.ShortcutController();
   var commandRegistry = new mindmaps.CommandRegistry(shortcutController);
   var undoController = new mindmaps.UndoController(eventBus, commandRegistry);
-  var mindmapModel = new mindmaps.MindMapModel(eventBus, commandRegistry, undoController);
+  var mindmapModel = new mindmaps.MindMapModel(eventBus, commandRegistry, undoController, modulesConfig.MindMapModel? modulesConfig.MindMapModel : {rootText: 'Central Idea'});
   var clipboardController = new mindmaps.ClipboardController(eventBus,
       commandRegistry, mindmapModel);
   var printController = new mindmaps.PrintController(eventBus,
@@ -67,6 +67,18 @@ mindmaps.ApplicationController = function(modules = []) {
     presenter.go();
   }
 
+  this.openDocument = function(result) {
+    try {
+      console.log(result);
+      var doc = mindmaps.Document.fromObject(result);
+      mindmapModel.setDocument(doc);
+    } catch (e) {
+      console.log(e);
+      eventBus.publish(mindmaps.Event.NOTIFICATION_ERROR, "Could not read the file.");
+      console.warn("Could not open the mind map via drag and drop.");
+    }
+  }
+
   /**
    * Initializes the controller, registers for all commands and subscribes to
    * event bus.
@@ -109,14 +121,18 @@ mindmaps.ApplicationController = function(modules = []) {
   /**
    * Launches the main view controller.
    */
-  this.go = function() {
+  this.go = function(extraConfig) {
     var viewController = new mindmaps.MainViewController(eventBus,
         mindmapModel, commandRegistry);
     viewController.go();
     doNewDocument();
 
-    for (let extraModule of modules) {
-        new extraModule(eventBus, mindmapModel);
+    for (let moduleName in modules) {
+      if (modulesConfig[moduleName]) {
+        new modules[moduleName](eventBus, mindmapModel, modulesConfig[moduleName]);
+      } else {
+        new modules[moduleName](eventBus, mindmapModel);
+      }
     }
   };
 

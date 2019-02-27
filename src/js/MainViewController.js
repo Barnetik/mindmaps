@@ -151,24 +151,28 @@ mindmaps.MainViewController = function(eventBus, mindmapModel, commandRegistry) 
     var fpf = new mindmaps.FloatPanelFactory(canvasContainer);
 
     // inspector
-    var inspectorView = new mindmaps.InspectorView();
-    var inspectorPresenter = new mindmaps.InspectorPresenter(eventBus,
+    if (!mindmaps.hideInspector) {
+      var inspectorView = new mindmaps.InspectorView();
+      var inspectorPresenter = new mindmaps.InspectorPresenter(eventBus,
         mindmapModel, inspectorView);
-    inspectorPresenter.go();
+        inspectorPresenter.go();
 
-    var inspectorPanel = fpf
+        var inspectorPanel = fpf
         .create("Inspector", inspectorView.getContent());
-    inspectorPanel.show();
-    statusbarPresenter.addEntry(inspectorPanel);
+        inspectorPanel.show();
+        statusbarPresenter.addEntry(inspectorPanel);
+    }
 
-    // navigator
-    var naviView = new mindmaps.NavigatorView();
-    var naviPresenter = new mindmaps.NavigatorPresenter(eventBus, naviView,
-        canvasContainer, zoomController);
-    naviPresenter.go();
+    if (!mindmaps.hideNavigator) {
+      // navigator
+      var naviView = new mindmaps.NavigatorView();
+      var naviPresenter = new mindmaps.NavigatorPresenter(eventBus, naviView,
+          canvasContainer, zoomController);
+      naviPresenter.go();
 
-    var navigatorPanel = fpf.create("Navigator", naviView.getContent());
-    navigatorPanel.show();
-    statusbarPresenter.addEntry(navigatorPanel);
+      var navigatorPanel = fpf.create("Navigator", naviView.getContent());
+      navigatorPanel.show();
+      statusbarPresenter.addEntry(navigatorPanel);
+    }
   };
 };

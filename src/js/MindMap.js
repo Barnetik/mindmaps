@@ -1,7 +1,7 @@
 /**
- * 
+ *
  * Creates a new mind map.
- * 
+ *
  * @constructor
  * @param {mindmaps.Node} [root]
  */
@@ -18,7 +18,7 @@ mindmaps.MindMap = function(root) {
     this.root = new mindmaps.Node();
     this.root.text.font.size = 20;
     this.root.text.font.weight = "bold";
-    this.root.text.caption = "Central Idea";
+    this.root.text.caption = mindmaps.defaultRootText? mindmaps.defaultRootText : "Central Idea";
   }
 
   this.addNode(this.root);
@@ -26,7 +26,7 @@ mindmaps.MindMap = function(root) {
 
 /**
  * Creates a new mind map object from JSON String.
- * 
+ *
  * @static
  * @param {String} json
  * @returns {mindmaps.MindMap}
@@ -37,7 +37,7 @@ mindmaps.MindMap.fromJSON = function(json) {
 
 /**
  * Creates a new mind map object from generic object.
- * 
+ *
  * @static
  * @param {Object} obj
  * @returns {mindmaps.MindMap}
@@ -56,9 +56,9 @@ mindmaps.MindMap.fromObject = function(obj) {
 
 /**
  * Called by JSON.stringify().
- * 
+ *
  * @private
- * 
+ *
  */
 mindmaps.MindMap.prototype.toJSON = function() {
   var obj = {
@@ -69,7 +69,7 @@ mindmaps.MindMap.prototype.toJSON = function() {
 
 /**
  * Creates a JSON representation of the mind map.
- * 
+ *
  * @returns {String}
  */
 mindmaps.MindMap.prototype.serialize = function() {
@@ -78,7 +78,7 @@ mindmaps.MindMap.prototype.serialize = function() {
 
 /**
  * Create a node and add to nodes map.
- * 
+ *
  * @returns {mindmaps.Node}
  */
 mindmaps.MindMap.prototype.createNode = function() {
@@ -89,7 +89,7 @@ mindmaps.MindMap.prototype.createNode = function() {
 
 /**
  * Adds an existing node and all its children to the nodes map.
- * 
+ *
  * @param {mindmaps.Node} node
  */
 mindmaps.MindMap.prototype.addNode = function(node) {
@@ -104,7 +104,7 @@ mindmaps.MindMap.prototype.addNode = function(node) {
 
 /**
  * Removes a node from the mind map. Severs tie to the parent.
- * 
+ *
  * @param {mindmaps.Node} node
  */
 mindmaps.MindMap.prototype.removeNode = function(node) {
@@ -123,7 +123,7 @@ mindmaps.MindMap.prototype.removeNode = function(node) {
 
 /**
  * Get the root of the mind map.
- * 
+ *
  * @returns {mindmaps.Node}
  */
 mindmaps.MindMap.prototype.getRoot = function() {

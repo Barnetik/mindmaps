@@ -1,6 +1,6 @@
 /**
  * Unused for now.
- * 
+ *
  * @constructor
  */
 mindmaps.NewDocumentView = function() {
@@ -12,7 +12,7 @@ mindmaps.NewDocumentView = function() {
  * with it for now. It simply creates a new document. It could in the future
  * display a dialog where the user could chose options like document title and
  * such.
- * 
+ *
  * @constructor
  */
 mindmaps.NewDocumentPresenter = function(eventBus, mindmapModel, view) {
